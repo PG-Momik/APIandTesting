@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get(
         return $request->user();
     }
 );
+Route::get('/', fn() => 'okok');
 
 Route::group(
     ['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'],
