@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\V1\CategoryController;
+use App\Http\Controllers\Api\V1\ProductController;
+use App\Http\Controllers\Api\V1\RoleController;
+use App\Http\Controllers\Api\V1\TransactionController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get(
+    '/user',
+    function (Request $request) {
+        return $request->user();
+    }
+);
+Route::get('/', fn() => 'okok');
+
+Route::group(
+    ['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'],
+    function () {
+        Route::apiResource('users', UserController::class);
+        Route::apiResource('roles', RoleController::class);
+        Route::apiResource('products', ProductController::class);
+        Route::apiResource('category', CategoryController::class);
+        Route::apiResource('transaction', TransactionController::class);
+    }
+);
