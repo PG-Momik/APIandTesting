@@ -14,9 +14,9 @@ class ProductResource extends JsonResource
      *
      * @param Request $request
      *
-     * @return array|Arrayable|JsonSerializable
+     * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id'            => $this->id,
@@ -28,7 +28,7 @@ class ProductResource extends JsonResource
             'image'         => $this->image,
             'registeredBy'  => $this->registered_by,
             'categoryId'    => $this->category_id,
-            'createdAt'     => $this->created_at,
+            'createdAt'     => formatToEasyToReadShort($this->created_at),
         ];
     }
 }

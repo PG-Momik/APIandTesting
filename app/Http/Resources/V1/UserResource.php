@@ -2,10 +2,8 @@
 
 namespace App\Http\Resources\V1;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use JsonSerializable;
 
 class UserResource extends JsonResource
 {
@@ -14,6 +12,7 @@ class UserResource extends JsonResource
      *
      * @param Request $request
      *
+     * @return array
      */
     public function toArray($request): array
     {
@@ -21,7 +20,7 @@ class UserResource extends JsonResource
             'id'        => $this->id,
             'name'      => $this->name,
             'email'     => $this->email,
-            'createdAt' => $this->created_at,
+            'createdAt' => formatToEasyToReadShort($this->created_at),
         ];
     }
 }
