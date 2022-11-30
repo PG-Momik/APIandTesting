@@ -33,7 +33,7 @@ Route::group(
         Route::apiResource('users', UserController::class);
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('products', ProductController::class);
-        Route::apiResource('category', CategoryController::class);
-        Route::apiResource('transaction', TransactionController::class);
+        Route::apiResource('categories', CategoryController::class);
+        Route::apiResource('transactions', TransactionController::class);
     }
 );
